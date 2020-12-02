@@ -1,5 +1,6 @@
 const button = document.getElementById("searchBtn");
 const searchField = document.querySelector(".searchField");
+const containerWin = document.querySelector(".container");
 const locationName = document.getElementById("locName");
 const forecast = document.getElementById("forecastDesc");
 const temp = document.getElementById("temperature");
@@ -8,8 +9,6 @@ const iconImg = document.getElementById("weatherIcon");
 
 const getSearchValue = () => {
   const textData = searchField.value;
-  // Rethink now I'm gonna clear the searchfield.
-  // searchField.value = "";
   return textData;
 };
 
@@ -31,6 +30,14 @@ const getFetchData = async () => {
   }
 };
 
+const showContent = () => {
+  containerWin.style.display = 'block';
+};
+
+const hideContent = () => {
+  containerWin.style.display = 'none';
+};
+
 // Display location
 const dispLocation = (data) => {
   locationName.textContent = data.name;
@@ -43,10 +50,11 @@ const dispTemperature = (data) => {
 
 // Get and display the forecast description and Icon.
 const dispIcon_Desc = (data) => {
-    forecast.textContent = data.weather[0].description;
-    const WeatherIconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    iconImg.src = WeatherIconURL;
+  forecast.textContent = data.weather[0].description;
+  const WeatherIconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  iconImg.src = WeatherIconURL;
 };
+
 /*
 const dispForecastData = (data) => {
   
@@ -55,14 +63,21 @@ const dispForecastData = (data) => {
 
 const searching = async () => {
   try {
-    const weatherData = await getFetchData();
-    console.log(weatherData);
+    if(searchField.value.length === 0) {
+      hideContent();
+    } else {
+      const weatherData = await getFetchData();
+      searchField.value = "";
+      console.log(weatherData);
+      
+      dispLocation(weatherData);
+      dispTemperature(weatherData);
+      dispIcon_Desc(weatherData);
+      showContent();
+      //console.log("Check:" + locationName.hasChildNodes());
+      //display temperature, humidity, foreast (icon + describing text).
+    }
     
-    dispLocation(weatherData);
-    dispTemperature(weatherData);
-    dispIcon_Desc(weatherData);
-    //console.log("Check:" + locationName.hasChildNodes());
-    //display temperature, humidity, foreast (icon + describing text).
   } catch (err) {
     console.log('We have an error in our search functionality' + err);
   }

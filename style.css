@@ -5,12 +5,19 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font: 'Raleway', sans-serif;
   color: rgba(0,0,0,.5);
   text-align: left;
   text-transform: uppercase;
   letter-spacing: .5em;
   top: 15%;
+}
+
+.container {
+  display: none;
 }
 
 h1 {
@@ -20,4 +27,15 @@ h1 {
   text-transform: uppercase;
   letter-spacing: .5em;
   width: 100%;
+}
+
+#weatherDataWinTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weatherDataWinBottom {
+  display: grid;
+
 }

@@ -7,15 +7,20 @@
   <body id="mainWindow">
     <h1>Todays Weather forcast</h1>
 
-    <div id ="location">
-      <h4 id="locName"></h4>
-    </div>
-    <div id="weatherDataWinTop">
-      <h3 id="forecastDesc"></h3>
-      <img id="weatherIcon">
-    </div>
-    <div id="weatherDataWinBottom">
-      <p id="temperature"></p>
+    <div class="container">
+      <div id ="lcation">
+        <h4 id="locName"></h4>
+      </div>
+      <div id="weatherDataWinTop">
+        <h3 id="forecastDesc"></h3>
+        <img id="weatherIcon">
+      </div>
+      <div id="weatherDataWinBottom">
+        <p id="temperature"></p>
+        <div id="detailsWin">
+          <p id="details">DETAILS</p>
+        </div>
+      </div>
     </div>
 
     <div id="searchWindow">
@@ -25,8 +30,7 @@
           type="search"
           name="searchField"
           onfocus=""
-          placeholder="Search Location">
-          <br>
+          placeholder="Location">
         <button
           id="searchBtn"
           type="button"
