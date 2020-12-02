@@ -1,0 +1,23 @@
+html {
+  height:100%;
+  /* background: #20A9E0; */
+  background: whitesmoke;
+}
+
+body {
+  font: 'Raleway', sans-serif;
+  color: rgba(0,0,0,.5);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  top: 15%;
+}
+
+h1 {
+  font: 600 2.5em 'Raleway', sans-serif;
+  color: rgba(0,0,0,.6);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  width: 100%;
+}

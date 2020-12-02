@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Weather forecast</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body id="mainWindow">
+    <h1>Todays Weather forcast</h1>
+
+    <div id ="location">
+      <h4 id="locName"></h4>
+    </div>
+    <div id="weatherDataWinTop">
+      <h3 id="forecastDesc"></h3>
+      <img id="weatherIcon">
+    </div>
+    <div id="weatherDataWinBottom">
+      <p id="temperature"></p>
+    </div>
+
+    <div id="searchWindow">
+      <form id="searchForm" onsubmit="return false;">
+        <input
+          class="searchField"
+          type="search"
+          name="searchField"
+          onfocus=""
+          placeholder="Search Location">
+          <br>
+        <button
+          id="searchBtn"
+          type="button"
+          name="searchBtn"
+          >
+          Search
+        </button>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="weatherData.js"></script>
+  </body>
+</html>
