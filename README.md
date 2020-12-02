@@ -5,3 +5,7 @@ Forecast, Temperature, Humidity, Pressure etc.
 Data is fetched via the OpenWeather API.
 
 Design: Plain and simple UI
+
+
+## How to use:
+In it's current state the user has to download the files and run the "index.html" in their browser.
