@@ -4,6 +4,7 @@ const containerWin = document.querySelector(".container");
 const locationName = document.getElementById("locName");
 const forecast = document.getElementById("forecastDesc");
 const temp = document.getElementById("temperature");
+const feelsLike = document.getElementById("feelsLike");
 const iconImg = document.getElementById("weatherIcon");
 
 
@@ -51,6 +52,7 @@ const dispTemperature = (data) => {
 // Get and display the forecast description and Icon.
 const dispIcon_Desc = (data) => {
   forecast.textContent = data.weather[0].description;
+  feelsLike.textContent = (data.main.feels_like-272.15).toFixed(1) + String.fromCharCode(176) + "C" ;
   const WeatherIconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   iconImg.src = WeatherIconURL;
 };

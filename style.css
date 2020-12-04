@@ -1,7 +1,7 @@
 html {
   height:100%;
   /* background: #20A9E0; */
-  background: whitesmoke;
+  background: white;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
   align-items: center;
   font: 'Raleway', sans-serif;
   color: rgba(0,0,0,.5);
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: .5em;
   top: 15%;
@@ -37,5 +37,22 @@ h1 {
 
 #weatherDataWinBottom {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 
+#temperature {
+  font-size: 35px;
+  margin: 0 0 0 0;
+}
+
+#detailsWin {
+  display: grid;
+  text-align: left;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.detailsData {
+  
 }
