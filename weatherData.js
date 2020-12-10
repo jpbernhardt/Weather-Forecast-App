@@ -5,6 +5,9 @@ const locationName = document.getElementById("locName");
 const forecast = document.getElementById("forecastDesc");
 const temp = document.getElementById("temperature");
 const feelsLike = document.getElementById("feelsLike");
+const humidity = document.getElementById("humidity");
+const windSpeed = document.getElementById("windSpeed");
+const windDir = document.getElementById("windDir");
 const iconImg = document.getElementById("weatherIcon");
 
 
@@ -44,15 +47,36 @@ const dispLocation = (data) => {
   locationName.textContent = data.name;
 };
 
+// Function converting degrees to Celius with one decimal.
+const convertToCelcius = (degrees) => {
+  let Celcius = (degrees-272.15).toFixed(1) + String.fromCharCode(176) + "C";
+  return Celcius;
+};
+
 // Display Temperature
 const dispTemperature = (data) => {
-  temp.textContent = (data.main.temp-272.15).toFixed(1) + String.fromCharCode(176) + "C" ;
+  temp.textContent = convertToCelcius(data.main.temp);
 };
+
+// Display Humidity
+const dispHumidity = (data) => {
+  humidity.textContent = data.main.humidity + "%";
+}
+
+// Display Wind Speed
+const dispWindSpeed = (data) => {
+  windSpeed.textContent = data.wind.speed + "m/s";
+}
+
+// Display Wind Direction
+const dispWindDir = (data) => {
+  windDir.textContent = data.wind.deg + "*";
+}
 
 // Get and display the forecast description and Icon.
 const dispIcon_Desc = (data) => {
   forecast.textContent = data.weather[0].description;
-  feelsLike.textContent = (data.main.feels_like-272.15).toFixed(1) + String.fromCharCode(176) + "C" ;
+  feelsLike.textContent = convertToCelcius(data.main.feels_like);
   const WeatherIconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   iconImg.src = WeatherIconURL;
 };
@@ -74,12 +98,14 @@ const searching = async () => {
       
       dispLocation(weatherData);
       dispTemperature(weatherData);
+      dispHumidity(weatherData);
+      dispWindSpeed(weatherData);
+      dispWindDir(weatherData);
       dispIcon_Desc(weatherData);
       showContent();
       //console.log("Check:" + locationName.hasChildNodes());
       //display temperature, humidity, foreast (icon + describing text).
     }
-    
   } catch (err) {
     console.log('We have an error in our search functionality' + err);
   }
